@@ -47,6 +47,9 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes' "More awesome colorschem
 Plug 'lervag/vimtex' "in order to write latex
 Plug 'https://github.com/aclements/latexrun'
 
+" have SQL syntaxis and functionalities
+Plug 'tpope/vim-dadbod'
+
 "Vanilla Settings
 " moves the current line up by one position
 nnoremap <A-k> :m -2<CR>
