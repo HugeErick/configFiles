@@ -1,6 +1,6 @@
 " Erick Gonzalez Parada linux
 set number 
-set clipboard+=unnamedplus "wl-clipboard should work
+set clipboard+=unnamedplus "wl-clipboard should work if not copy smthing outside vim
 set relativenumber
 set autoindent
 set tabstop=2
@@ -23,12 +23,14 @@ set report=0
 set scrolloff=4
 set sidescrolloff=7
 set sidescroll=1
+set nohlsearch
 " Italics
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
 call plug#begin()
 
+set encoding=UTF-8
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'ryanoasis/vim-devicons' "idk
@@ -50,18 +52,22 @@ Plug 'https://github.com/aclements/latexrun'
 " have SQL syntaxis and functionalities
 Plug 'tpope/vim-dadbod'
 
+" Multiple cursors
+Plug 'mg979/vim-visual-multi'
+
+call plug#end()
+
 "Vanilla Settings
+
 " moves the current line up by one position
 nnoremap <A-k> :m -2<CR>
 " moves the current line down by one position
 nnoremap <A-j> :m +1<CR>
 
-set encoding=UTF-8
-call plug#end()
 filetype plugin indent on
 
 " colorsitos uwu
-colorscheme gruvbox 
+colorscheme PaperColor
 syntax enable
 
 " in order to toggle nerdtree
@@ -78,7 +84,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+"important line
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:python_highlight_all=1 "just python highlight
 
