@@ -8,8 +8,8 @@ set shiftwidth=2
 set smarttab
 set softtabstop=2
 set mouse=a
-set spell "add to dicc zg
-setlocal spell spelllang=es
+set spell "add to dicc zg, check sugestions z=
+setlocal spell spelllang=es "es = spanish
 set nobackup
 set nowritebackup
 set noswapfile
