@@ -1,4 +1,4 @@
-" Erick Gonzalez Parada linux
+ "Erick Gonzalez Parada linux
 set number 
 set clipboard+=unnamedplus "wl-clipboard should work if not copy smthing outside vim
 set relativenumber
@@ -83,16 +83,16 @@ nnoremap <leader>ll :VimtexCompile<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 
 set laststatus=2
+" If powerline icons dont work the install powerline fonts to the terminal 
 let g:airline_powerline_fonts = 1
 "important line
-let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_theme='violet'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:python_highlight_all=1 "just python highlight
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 
 
 " auto templates
