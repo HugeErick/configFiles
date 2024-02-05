@@ -1,0 +1,49 @@
+# ~/.bashrc
+
+#configs
+shopt -s nocaseglob
+shopt -s expand_aliases
+
+# alias
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias scrot="~/.local/other/myscreenshot.sh"
+alias py='python'
+alias mariadb="sudo /usr/bin/mariadb -u massiveAnalizer -p"
+alias boomer="cd ~/.local/src/boomer && ./boomer"
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+alias copyghtoken="sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' keys | sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | xclip -selection clipboard"
+PS1='[\u@\h \W]\$ '
+
+
+# EXPORTS
+# Expand the history size
+export HISTFILESIZE=10000
+export HISTSIZE=500
+
+# Don't put duplicate lines in the history and do not add lines that start with a space
+export HISTCONTROL=erasedups:ignoredups:ignorespace
+
+export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+
+export VISUAL=nvim
+export EDITOR=nvim
+export TERMINAL=st
+
+#echo "
+# _____      _      _    
+#| ____|_ __(_) ___| | __
+#|  _| | '__| |/ __| |/ /
+#| |___| |  | | (__|   < 
+#|_____|_|  |_|\___|_|\_\\
+#"
+
+#LASTLY
+neofetch | lolcat
+if ! tmux has-session -t a 2>/dev/null; then
+    tmux new -s a
+fi
+
+
