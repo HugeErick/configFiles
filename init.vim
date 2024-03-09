@@ -24,6 +24,7 @@ set scrolloff=4
 set sidescrolloff=7
 set sidescroll=1
 set nohlsearch
+set ttimeoutlen=100
 " Italics
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
@@ -58,17 +59,18 @@ Plug 'mg979/vim-visual-multi'
 call plug#end()
 
 "Vanilla Settings
-
-" moves the current line up by one position
-nnoremap <A-k> :m -2<CR>
+nnoremap <C-k> :m -2<CR>
 " moves the current line down by one position
-nnoremap <A-j> :m +1<CR>
+nnoremap <C-j> :m +1<CR>
+" Changes ctrl + v -> visual block to ctrl + b
+nnoremap <C-B> <C-v>
 
 filetype plugin indent on
 
 " colorsitos uwu
 colorscheme PaperColor
 syntax enable
+
 
 " in order to toggle nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -78,7 +80,7 @@ let g:vimtex_view_general_viewer = 'atril'
 let g:vimtex_compiler_method = 'arara'
 let maplocalleader = ","
 nnoremap <leader>ll :VimtexCompile<CR>
-" above, i.e ,ll
+" above, i.e ,ll to compile tex
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -93,7 +95,6 @@ let g:python_highlight_all=1 "just python highlight
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 
 " auto templates
 if has("autocmd")

@@ -12,8 +12,9 @@ alias py='python'
 alias mariadb="sudo /usr/bin/mariadb -u massiveAnalizer -p"
 alias boomer="cd ~/.local/src/boomer && ./boomer"
 alias grep="/usr/bin/grep $GREP_OPTIONS"
-alias copyghtoken="sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' keys | sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | xclip -selection clipboard"
+alias copyghtoken="sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' ~/keys | sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | xclip -selection clipboard"
 PS1='[\u@\h \W]\$ '
+alias syushutdown="sudo pacman -Syu && sudo shutdown"
 
 
 # EXPORTS
@@ -45,5 +46,4 @@ neofetch | lolcat
 if ! tmux has-session -t a 2>/dev/null; then
     tmux new -s a
 fi
-
 

@@ -1,0 +1,69 @@
+# Terminate a process from terminal
+pgrep 'process_name' 
+
+
+# Change the ownership of the file to root:
+
+1) sudo chown root:root secure_file.txt
+2) sudo chmod 700 secure_file.txt
+3) sudo nvim secure_file.txt
+
+# Neovim tricks
+- In several languages and with NerdTree plugin, to open a header file (or import)
+you can press Ctrl-w + gf in order to get a new instanciation of nvim to edit this
+header file.
+- Pressing gd in normal mode can search for definition of a function
+- For adding a word in the diccionary just press zg in normal mode.
+- For selecting a line just press 'V'.
+
+# SQL
+* Start localhost with created user:
+	alias: mariadb
+	sudo /usr/bin/mariadb -u massiveAnalizer -p
+- If MariaDB is not running, run:
+	sudo systemctl start mariadb
+- Show dbs
+SHOW DATABASES;
+- See current user:
+SELECT CURRENT_USER();
+- View tables:
+SHOW TABLES;
+* Feed sql file
+sudo /usr/bin/mariadb -u massiveAnalizer -p < sample.sql
+- View content of table
+SELECT * FROM table_name;
+
+# Misc
+- Quickly get a tocken with:
+sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' keys |
+sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | wl-copy
+- Turn on leds on extern keyboard:
+sudo kbd_mode -f -u
+
+# Commitlint
+From: https://github.com/conventional-changelog/commitlint
+* Common types according to commitlint-config-conventional can be:
+- build
+- chore
+- ci
+- docs
+- feat
+- fix
+- perf
+- refactor
+- revert
+- style
+- test
+These can be modified by your own configuration.
+
+# Tmux
+- To save new configuration do: tmux source-file ~/.tmux.conf
+- Vertical split: ctrl-command + %
+- Horizontal split: ctrl-command + "
+
+# nnmap
+- command first touch:
+nmap -sC -sV -oA nmap/foldername ip address
+
+# International keys
+ñ
