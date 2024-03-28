@@ -35,3 +35,12 @@ operando
 zReg
 decimalNumsInterpretor
 ok
+edx
+ecx
+syscall
+stdout
+cpu
+syscalls
+equ
+esi
+edi

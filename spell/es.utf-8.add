@@ -154,3 +154,16 @@ label
 sec
 discus
 comparacion
+rl
+allocates
+memory
+equ
+constant
+edx
+ecx
+stdout
+syscall
+cpu
+syscalls
+assembly
+object

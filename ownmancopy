@@ -18,8 +18,10 @@ header file.
 
 # SQL
 * Start localhost with created user:
-	alias: mariadb
 	sudo /usr/bin/mariadb -u massiveAnalizer -p
+	alias: mariadb
+	(with alias)
+	sudo mariadb -u massiveAnalizer -p
 - If MariaDB is not running, run:
 	sudo systemctl start mariadb
 - Show dbs
@@ -64,6 +66,23 @@ These can be modified by your own configuration.
 # nnmap
 - command first touch:
 nmap -sC -sV -oA nmap/foldername ip address
+
+# assembly
+- to make the object output and the executable at the same time in this machine arch x86_64 command:
+nasm -f elf64 -g filename.asm -o objectfilename.o && ld -m elf_x86_64 objectfilename.o -o executablename
+- to debbug an assembly code use gdb:
+gdb ./filename
+
+# connecting to wifi just terminal
+1) sudo start iwd.service
+- run iwd command
+2) iwd
+3) device list 
+4) station <wlan> get-networks
+5) station <wlan> connect <"network name">
+
+#disconnecting
+- 
 
 # International keys
 ñ

@@ -46,8 +46,8 @@ Plug 'https://github.com/vim-python/python-syntax' "py syntax highlight
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/vim-airline/vim-airline-themes' "Airline themes 
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' "More awesome colorschemes
-
-Plug 'lervag/vimtex' "in order to write latex
+"in order to write latex
+Plug 'lervag/vimtex'
 Plug 'https://github.com/aclements/latexrun'
 
 " have SQL syntaxis and functionalities
