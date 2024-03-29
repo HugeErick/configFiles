@@ -75,8 +75,8 @@ gdb ./filename
 
 # connecting to wifi just terminal
 1) sudo start iwd.service
-- run iwd command
-2) iwd
+- run iwd command always with sudo
+2) sudo iwd
 3) device list 
 4) station <wlan> get-networks
 5) station <wlan> connect <"network name">
