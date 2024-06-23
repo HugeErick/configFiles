@@ -29,6 +29,8 @@ set ttimeoutlen=100
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
 call plug#begin()
 
 set encoding=UTF-8
