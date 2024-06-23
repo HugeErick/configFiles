@@ -12,9 +12,11 @@ pgrep 'process_name'
 - In several languages and with NerdTree plugin, to open a header file (or import)
 you can press Ctrl-w + gf in order to get a new instanciation of nvim to edit this
 header file.
-- Pressing gd in normal mode can search for definition of a function
+- Pressing gd in normal mode can search for definition of a function.
 - For adding a word in the diccionary just press zg in normal mode.
 - For selecting a line just press 'V'.
+- Replacing: ":%s/foo/bar/g".
+- For	switching between buffers do (normal mode) ":bn".
 
 # SQL
 * Start localhost with created user:
@@ -35,12 +37,16 @@ sudo /usr/bin/mariadb -u massiveAnalizer -p < sample.sql
 - View content of table
 SELECT * FROM table_name;
 
-# Misc
+# misc
 - Quickly get a tocken with:
 sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' keys |
 sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | wl-copy
 - Turn on leds on extern keyboard:
 sudo kbd_mode -f -u
+descriptive list where last item is newest
+- ls -ltr
+unzip with destination flag
+unzip <zipfile> -d <destiny>
 
 # Commitlint
 From: https://github.com/conventional-changelog/commitlint
@@ -74,15 +80,21 @@ nasm -f elf64 -g filename.asm -o objectfilename.o && ld -m elf_x86_64 objectfile
 gdb ./filename
 
 # connecting to wifi just terminal
-1) sudo start iwd.service
-- run iwd command always with sudo
-2) sudo iwd
-3) device list 
-4) station <wlan> get-networks
-5) station <wlan> connect <"network name">
+nmtui 
+if ip address errors try:
+sudo systemctl restart NetworkManager
+
+# matlab
+a) compile matlab from terminal (linux)
+1) install w sudo matlab (uses premium or academic account)
+2) add to PATH: /usr/local/MATLAB/R2022a
+3) compile with mcc -m filename.m
+4) run the shell file with explicit path /usr/local/MATLAB/R2024a
+5) enjoy
 
 #disconnecting
 - 
 
 # International keys
 ñ
+

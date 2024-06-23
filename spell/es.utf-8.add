@@ -167,3 +167,4 @@ cpu
 syscalls
 assembly
 object
+cflags

@@ -44,3 +44,5 @@ syscalls
 equ
 esi
 edi
+goorr
+barr
