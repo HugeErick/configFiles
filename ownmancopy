@@ -17,6 +17,7 @@ header file.
 - For selecting a line just press 'V'.
 - Replacing: ":%s/foo/bar/g".
 - For	switching between buffers do (normal mode) ":bn".
+- Switching between NerdTree buffers (normal mode) "gt".
 
 # SQL
 * Start localhost with created user:
