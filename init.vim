@@ -75,7 +75,8 @@ syntax enable
 " in order to toggle nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
 " switch buffers 
-nnoremap <C-tab> :bnext<CR>
+nnoremap <C-a> :bn<CR>
+nnoremap<C-s> :bp<CR>
 
 "Latex config
 let g:vimtex_view_general_viewer = 'atril'
