@@ -30,34 +30,32 @@ let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+
 
 call plug#begin()
 
 set encoding=UTF-8
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'ryanoasis/vim-devicons' "idk
+Plug 'jiangmiao/auto-pairs' "closing pairs
+Plug 'ryanoasis/vim-devicons' "add dev icons
 Plug 'scrooloose/nerdtree' "nerdtree
-Plug 'preservim/nerdcommenter' "idk
+Plug 'preservim/nerdcommenter' 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "intellisense
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+" :CocInstall coc-html
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
-Plug 'jiangmiao/auto-pairs' "closing braces and parenthesis etc
 Plug 'https://github.com/vim-python/python-syntax' "py syntax highlight
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/vim-airline/vim-airline-themes' "Airline themes 
-Plug 'https://github.com/rafi/awesome-vim-colorschemes' "More awesome colorschemes
-"in order to write latex
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' "More colorschemes
+" latex
 Plug 'lervag/vimtex'
 Plug 'https://github.com/aclements/latexrun'
 
-" have SQL syntaxis and functionalities
-Plug 'tpope/vim-dadbod'
-
-" Multiple cursors
-Plug 'mg979/vim-visual-multi'
-
+Plug 'tpope/vim-dadbod' " have SQL syntaxis and functionalities
+Plug 'mg979/vim-visual-multi' " Multiple cursors
 call plug#end()
 
 "Vanilla Settings

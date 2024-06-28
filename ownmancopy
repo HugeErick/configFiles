@@ -1,6 +1,7 @@
 # Terminate a process from terminal
 pgrep 'process_name' 
-
+# to print in my epsonl355
+use: lp -d EPSON_L355 /home/erick/documents/sample.pdf
 
 # Change the ownership of the file to root:
 
@@ -17,7 +18,6 @@ header file.
 - For selecting a line just press 'V'.
 - Replacing: ":%s/foo/bar/g".
 - For	switching between buffers do (normal mode) ":bn".
-- Switching between NerdTree buffers (normal mode) "gt".
 
 # SQL
 * Start localhost with created user:
@@ -93,8 +93,13 @@ a) compile matlab from terminal (linux)
 4) run the shell file with explicit path /usr/local/MATLAB/R2024a
 5) enjoy
 
-#disconnecting
-- 
+# disconnecting ssh session
+- ctrl + d 
+# disconnecting screen session 
+- (ctrl + a)  + d
+
+# suckless terminal 
+functions definitions found in x.c
 
 # International keys
 ñ
