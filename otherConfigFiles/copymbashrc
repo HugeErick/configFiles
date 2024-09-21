@@ -1,6 +1,12 @@
 # ~/.bashrc
-
 #configs
+# Only run this part if the shell is interactive
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
 shopt -s nocaseglob
 shopt -s expand_aliases
 
@@ -17,33 +23,27 @@ PS1='[\u@\h \W]\$ '
 alias syushutdown="sudo pacman -Syu && sudo shutdown"
 
 
-# EXPORTS
+# EXPORTS (env variables)
 # Expand the history size
 export HISTFILESIZE=10000
 export HISTSIZE=500
+export PRINTER=EPSON_L355
 
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
 export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
-export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:~/.local/src/pycharm-community-2024.2.1/bin:/usr/local/MATLAB/R2024a:$PATH"
 
 export VISUAL=nvim
 export EDITOR=nvim
 export TERMINAL=st
 
-#echo "
-# _____      _      _    
-#| ____|_ __(_) ___| | __
-#|  _| | '__| |/ __| |/ /
-#| |___| |  | | (__|   < 
-#|_____|_|  |_|\___|_|\_\\
-#"
-
 #LASTLY
-neofetch | lolcat
-if ! tmux has-session -t a 2>/dev/null; then
-    tmux new -s a
+fastfetch | lolcat
+if ! tmux has-session -t 0 2>/dev/null; then
+    tmux new
 fi
+
 

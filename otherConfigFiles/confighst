@@ -1,11 +1,12 @@
 /* See LICENSE file for copyright and license details. */
+/* sudo make install */
 
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=22:antialias=true:autohint=true";
+static char *font = "DejaVuSansMono:pixelsize=22:antialias=true:autohint=true";
 static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 2;
 
@@ -29,6 +30,9 @@ char *vtiden = "\033[?6c";
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
 static float chscale = 1.0;
+
+// personal shortcuts
+
 
 /*
  * word delimiter string
@@ -238,6 +242,12 @@ static MouseShortcut mshortcuts[] = {
 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
+//custom
+void iso14755(const Arg *arg) {
+	char *cmd[] = { "/bin/sh", "-c", "printf '\\u%04x\\n' \"$(xclip -o)\" | xargs echo -n |xclip -selection clipboard", NULL };
+	execvp(cmd[0], cmd);
+}
+
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (Mod1Mask|ShiftMask)
@@ -248,6 +258,7 @@ static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NUL
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
+	{ ControlMask|ShiftMask,XK_U,						iso14755, {0} },
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
@@ -268,8 +279,6 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_k,           kscrollup,      {.i =  1} },
 	{ MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
-	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
-	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
 	{ MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
 	{ MODKEY,		XK_a,		changealpha,	{.f = +0.05} },
@@ -279,6 +288,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
 	{ TERMMOD,              XK_U,           zoom,           {.f = +2} },
 	{ TERMMOD,              XK_D,           zoom,           {.f = -2} },
+	{ TERMMOD,							XK_I,					  zoomreset,			{0} },
 	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
@@ -321,6 +331,8 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * This is the huge key array which defines all compatibility to the Linux
  * world. Please decide about changes wisely.
  */
+
+
 static Key key[] = {
 	/* keysym           mask            string      appkey appcursor */
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
@@ -532,6 +544,8 @@ static Key key[] = {
 	{ XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
 	{ XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
 	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
+	//custom
+	{ ControlMask, XK_Tab, "\033[1;5I", 0, 0, 0 },
 };
 
 /*

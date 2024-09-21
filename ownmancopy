@@ -18,6 +18,7 @@ header file.
 - For selecting a line just press 'V'.
 - Replacing: ":%s/foo/bar/g".
 - For	switching between buffers do (normal mode) ":bn".
+- Ctrl + o to go back where cursor was previously
 
 # SQL
 * Start localhost with created user:
@@ -84,6 +85,9 @@ gdb ./filename
 nmtui 
 if ip address errors try:
 sudo systemctl restart NetworkManager
+sudo systemctl restart wpa_supplicant 
+sudo systemctl restart systemd-resolved
+
 
 # matlab
 a) compile matlab from terminal (linux)
@@ -98,8 +102,15 @@ a) compile matlab from terminal (linux)
 # disconnecting screen session 
 - (ctrl + a)  + d
 
-# suckless terminal 
-functions definitions found in x.c
+# unzip tar.gz file with tar command
+tar -xzf filename.tar.gz
+
+# microfone
+(without sudo)
+plug ur mic first 
+pulseaudio -k
+pulseaudio -D
+and check in pavucontrol
 
 # International keys
 ñ

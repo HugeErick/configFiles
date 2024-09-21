@@ -34,16 +34,21 @@ autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 
 
 call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "intellisense
+" :CocInstall coc-html
+" :CocInstall coc-vetur
+" :CocInstall @yaegassy/coc-tailwindcss3
 
 set encoding=UTF-8
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
 Plug 'jiangmiao/auto-pairs' "closing pairs
 Plug 'ryanoasis/vim-devicons' "add dev icons
 Plug 'scrooloose/nerdtree' "nerdtree
 Plug 'preservim/nerdcommenter' 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "intellisense
-" :CocInstall coc-html
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/vim-python/python-syntax' "py syntax highlight
@@ -72,11 +77,10 @@ colorscheme PaperColor
 syntax enable
 
 
-" in order to toggle nerdtree
+" NerdTree config
 nnoremap <C-t> :NERDTreeToggle<CR>
-" switch buffers 
-nnoremap <C-a> :bn<CR>
-nnoremap<C-s> :bp<CR>
+"autocmd FileType nerdtree unmap gt
+"autocmd FileType nerdtree noremap <silent> <C-i> :NERDTreeFocus<CR>
 
 "Latex config
 let g:vimtex_view_general_viewer = 'atril'
