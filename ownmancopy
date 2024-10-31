@@ -1,117 +1,49 @@
-# Terminate a process from terminal
-pgrep 'process_name' 
-# to print in my epsonl355
-use: lp -d EPSON_L355 /home/erick/documents/sample.pdf
-
-# Change the ownership of the file to root:
-
-1) sudo chown root:root secure_file.txt
-2) sudo chmod 700 secure_file.txt
-3) sudo nvim secure_file.txt
-
-# Neovim tricks
-- In several languages and with NerdTree plugin, to open a header file (or import)
-you can press Ctrl-w + gf in order to get a new instanciation of nvim to edit this
-header file.
-- Pressing gd in normal mode can search for definition of a function.
-- For adding a word in the diccionary just press zg in normal mode.
-- For selecting a line just press 'V'.
-- Replacing: ":%s/foo/bar/g".
-- For	switching between buffers do (normal mode) ":bn".
-- Ctrl + o to go back where cursor was previously
-
-# SQL
-* Start localhost with created user:
-	sudo /usr/bin/mariadb -u massiveAnalizer -p
-	alias: mariadb
-	(with alias)
-	sudo mariadb -u massiveAnalizer -p
-- If MariaDB is not running, run:
-	sudo systemctl start mariadb
-- Show dbs
-SHOW DATABASES;
-- See current user:
-SELECT CURRENT_USER();
-- View tables:
-SHOW TABLES;
-* Feed sql file
-sudo /usr/bin/mariadb -u massiveAnalizer -p < sample.sql
-- View content of table
-SELECT * FROM table_name;
-
-# misc
-- Quickly get a tocken with:
-sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' keys |
-sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | wl-copy
-- Turn on leds on extern keyboard:
-sudo kbd_mode -f -u
-descriptive list where last item is newest
-- ls -ltr
-unzip with destination flag
-unzip <zipfile> -d <destiny>
-
-# Commitlint
-From: https://github.com/conventional-changelog/commitlint
-* Common types according to commitlint-config-conventional can be:
-- build
-- chore
-- ci
-- docs
-- feat
-- fix
-- perf
-- refactor
-- revert
-- style
-- test
-These can be modified by your own configuration.
-
-# Tmux
-- To save new configuration do: tmux source-file ~/.tmux.conf
-- Vertical split: ctrl-command + %
-- Horizontal split: ctrl-command + "
-
-# nnmap
-- command first touch:
-nmap -sC -sV -oA nmap/foldername ip address
-
-# assembly
-- to make the object output and the executable at the same time in this machine arch x86_64 command:
-nasm -f elf64 -g filename.asm -o objectfilename.o && ld -m elf_x86_64 objectfilename.o -o executablename
-- to debbug an assembly code use gdb:
-gdb ./filename
-
-# connecting to wifi just terminal
-nmtui 
-if ip address errors try:
-sudo systemctl restart NetworkManager
-sudo systemctl restart wpa_supplicant 
-sudo systemctl restart systemd-resolved
+# ~/.bashrc
+#configs
+# Only run this part if the shell is interactive
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 
-# matlab
-a) compile matlab from terminal (linux)
-1) install w sudo matlab (uses premium or academic account)
-2) add to PATH: /usr/local/MATLAB/R2022a
-3) compile with mcc -m filename.m
-4) run the shell file with explicit path /usr/local/MATLAB/R2024a
-5) enjoy
+shopt -s nocaseglob
+shopt -s expand_aliases
 
-# disconnecting ssh session
-- ctrl + d 
-# disconnecting screen session 
-- (ctrl + a)  + d
+# alias
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias scrot="~/.local/other/myscreenshot.sh"
+alias py='python'
+alias mariadb="sudo /usr/bin/mariadb -u massiveAnalizer -p"
+alias boomer="cd ~/.local/src/boomer && ./boomer"
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+alias copyghtoken="sudo grep 'GITHUB-DEVSETTINGS-TOKEN=' ~/keys | sed 's/.*GITHUB-DEVSETTINGS-TOKEN=\(.*\)/\1/' | xclip -selection clipboard"
+PS1='[\u@\h \W]\$ '
+alias syushutdown="sudo pacman -Syu && sudo shutdown"
 
-# unzip tar.gz file with tar command
-tar -xzf filename.tar.gz
 
-# microfone
-(without sudo)
-plug ur mic first 
-pulseaudio -k
-pulseaudio -D
-and check in pavucontrol
+# EXPORTS (env variables)
+# Expand the history size
+export HISTFILESIZE=10000
+export HISTSIZE=500
+export PRINTER=EPSON_L355
 
-# International keys
-ñ
+# Don't put duplicate lines in the history and do not add lines that start with a space
+export HISTCONTROL=erasedups:ignoredups:ignorespace
+
+export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:~/.local/src/pycharm-community-2024.2.1/bin:/usr/local/MATLAB/R2024a:$PATH"
+
+export VISUAL=nvim
+export EDITOR=nvim
+export TERMINAL=st
+
+#LASTLY
+fastfetch | lolcat
+if ! tmux has-session -t 0 2>/dev/null; then
+    tmux new
+fi
+
 

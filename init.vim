@@ -41,15 +41,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "intellisense
 
 set encoding=UTF-8
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'jiangmiao/auto-pairs' "closing pairs
 Plug 'ryanoasis/vim-devicons' "add dev icons
 Plug 'scrooloose/nerdtree' "nerdtree
 Plug 'preservim/nerdcommenter' 
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'mattn/emmet-vim'
+Plug 'dense-analysis/ale'
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/vim-python/python-syntax' "py syntax highlight
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
