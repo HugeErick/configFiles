@@ -40,6 +40,8 @@ export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$HOME/.dotnet/tools:/usr/l
 export VISUAL=nvim
 export EDITOR=nvim
 export TERMINAL=st
+export LLAMA_DEV_TOKEN=??
+export GROG_CLOUD_API_DEV_TOKEN=??
 
 # Misc
 # Enable color support for ls and other commands
@@ -50,4 +52,5 @@ fastfetch | grep "Battery" | lolcat
 if ! tmux has-session -t 0 2>/dev/null; then
     tmux new
 fi
+
 
