@@ -1,6 +1,8 @@
  "Erick Gonzalez Parada linux
 set number 
 set clipboard+=unnamedplus "wl-clipboard should work if not copy smthing outside vim
+set encoding=UTF-8
+filetype plugin indent on
 set relativenumber
 set autoindent
 set tabstop=2
@@ -38,9 +40,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "intellisense
 " :CocInstall coc-html
 " :CocInstall coc-vetur
 " :CocInstall @yaegassy/coc-tailwindcss3
-
-set encoding=UTF-8
 " post install (yarn install | npm install) then load plugin only for editing supported files
+
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'jiangmiao/auto-pairs' "closing pairs
 Plug 'ryanoasis/vim-devicons' "add dev icons
@@ -53,11 +54,12 @@ Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/vim-python/python-syntax' "py syntax highlight
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/vim-airline/vim-airline-themes' "Airline themes 
+Plug 'rebelot/kanagawa.nvim'
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' "More colorschemes
 " latex
 Plug 'lervag/vimtex'
 Plug 'https://github.com/aclements/latexrun'
-
+" misc
 Plug 'tpope/vim-dadbod' " have SQL syntaxis and functionalities
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 call plug#end()
@@ -69,40 +71,36 @@ nnoremap <C-j> :m +1<CR>
 " Changes ctrl + v -> visual block to ctrl + b
 nnoremap <C-B> <C-v>
 
-filetype plugin indent on
 
-" colorsitos uwu
-colorscheme PaperColor
+" Theme
+colorscheme kanagawa 
+" vim.cmd("colorscheme kanagawa")
 syntax enable
-
+" If powerline icons dont work the install powerline fonts to the terminal 
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:python_highlight_all=1 "just python highlight
 
 " NerdTree config
 nnoremap <C-t> :NERDTreeToggle<CR>
-"autocmd FileType nerdtree unmap gt
-"autocmd FileType nerdtree noremap <silent> <C-i> :NERDTreeFocus<CR>
 
 "Latex config
 let g:vimtex_view_general_viewer = 'atril'
 let g:vimtex_compiler_method = 'arara'
+" ',ll' to compile tex
 let maplocalleader = ","
 nnoremap <leader>ll :VimtexCompile<CR>
-" above, i.e ,ll to compile tex
 
-inoremap <silent><expr> <c-space> coc#refresh()
-
-set laststatus=2
-" If powerline icons dont work the install powerline fonts to the terminal 
-let g:airline_powerline_fonts = 1
-"important line
-let g:airline_theme='violet'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:python_highlight_all=1 "just python highlight
-
+" Coc config
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" auto templates
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" automatic templates
 if has("autocmd")
   augroup templates
     autocmd BufNewFile a.cpp 0r ~/.config/nvim/templates/cpp.tpl
