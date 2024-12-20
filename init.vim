@@ -41,11 +41,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "intellisense
 " :CocInstall coc-vetur
 " :CocInstall @yaegassy/coc-tailwindcss3
 " post install (yarn install | npm install) then load plugin only for editing supported files
-
+Plug 'scrooloose/nerdtree' "nerdtree file managment
+Plug 'echasnovski/mini.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'jiangmiao/auto-pairs' "closing pairs
 Plug 'ryanoasis/vim-devicons' "add dev icons
-Plug 'scrooloose/nerdtree' "nerdtree
 Plug 'preservim/nerdcommenter' 
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'mattn/emmet-vim'
