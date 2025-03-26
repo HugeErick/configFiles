@@ -37,23 +37,25 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 
 export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
-export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$HOME/.dotnet/tools:/usr/local/MATLAB/R2024a:$PATH"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$HOME/.dotnet/tools:/usr/local/MATLAB/R2024a:$HOME/.cargo/bin$PATH"
 
-export VISUAL=nvim
 export EDITOR=nvim
-export TERMINAL=st
-export LLAMA_DEV_TOKEN=
-export GROG_CLOUD_API_DEV_TOKEN=
+export TERMINAL=alacritty
+export LLAMA_DEV_TOKEN=LA-e847fd7e33774657b27b25fb4172f3383ff6721af96c4821ab62dc10fada8de9
+
+export GROG_CLOUD_API_DEV_TOKEN=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
+
 
 export ORACLE_HOME=/opt/oracle/instantclient_23_7
 export PATH=$ORACLE_HOME:$PATH
 export LD_LIBRARY_PATH=$ORACLE_HOME:$LD_LIBRARY_PATH
 
-# Misc
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-#LASTLY
-fastfetch | grep "Battery" | lolcat
-if ! tmux has-session -t 0 2>/dev/null; then
-    tmux new
-fi
-
+# pnpm
+export PNPM_HOME="/home/erick/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

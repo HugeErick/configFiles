@@ -246,15 +246,20 @@ sudo systemctl restart wpa_supplicant
 
 ---
 
-# Disconnecting Sessions
-- SSH:
+# SSH
+- Connect: 
   ```bash
-  Ctrl + d
-  ```
+sudo ssh -i <key> ubuntu@<ip>  
+``` 
+- Detach:
+```bash
+Ctrl + d
+```
 - Screen:
   ```bash
   Ctrl + a, then d
   ```
+- Tmux:
 
 ---
 
@@ -356,4 +361,22 @@ Some Tips:
 - Spanish: á, é, í, ó, ú, ñ, ü
 - German: ä, ö, ü, ß
 
+# Best usefull Font
+- 0xProto Nerd Font (supports many things)
+## Installation
+1. Unzip
+```bash
+unzip ~/downloads/0xProto.zip -d ~/.local/share/fonts/
+```
+2. Update Font Cache
+```bash
+fc-cache -fv
+```
+3. Verify
+```bash
+fc-list | grep "0xProto"
+```
+
+# Tip for greenclip
+- nohup greenclip daemon &
 
