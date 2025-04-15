@@ -48,7 +48,7 @@ lp -d EPSON_L355 /home/erick/documents/sample.pdf
 - Prettier formatter:
   - `<Leader>p`
 - Copilot
-  - `<Leader>c`
+  - `<Leader>t`
 
 ---
 
